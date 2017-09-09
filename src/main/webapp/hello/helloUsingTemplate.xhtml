@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<ui:composition template="../layout/layout.xhtml">
+
+	<ui:define name="title">Hello</ui:define>
+	<ui:define name="subtitle">A simple example</ui:define>
+	<ui:define name="content">
+		<h:form>
+			<h:panelGroup layout="block" styleClass="field">
+				<h:outputLabel for="name" value="Enter your name" required="true"
+					styleClass="label" />
+				<h:inputText id="name" value="#{hello.name}" styleClass="input" />
+				<h:message for="name" />
+			</h:panelGroup>
+			<h:commandButton value="Say hello" action="#{hello.createMessage}"
+				styleClass="button is-dark">
+				<f:ajax execute="@form" render="@form" />
+			</h:commandButton>
+			<br />
+			<h:panelGroup layout="block" styleClass="block">
+        	#{hello.message}
+        </h:panelGroup>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

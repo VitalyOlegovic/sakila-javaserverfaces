@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+	<link rel="stylesheet" href="../css/bulma.css" />
+	<link rel="stylesheet" href="../css/font-awesome.min.css" />
+	<title>Hello, World!</title>
+</h:head>
+<h:body>
+	<h:panelGroup layout="block" styleClass="section">
+		<h:panelGroup layout="block" styleClass="container">
+			<h:panelGroup layout="block" styleClass="block">
+				<h1 class="title is-1">Hello, World!</h1>
+				<h2 class="title is-2">A simple example</h2>
+				<h:form>
+					<h:panelGroup layout="block" styleClass="field">
+						<h:outputLabel for="name" value="Enter your name" required="true"
+							styleClass="label" />
+						<h:inputText id="name" value="#{hello.name}" styleClass="input" />
+						<h:message for="name" />
+					</h:panelGroup>
+					<h:commandButton value="Say hello" action="#{hello.createMessage}"
+						styleClass="button is-dark">
+						<f:ajax execute="@form" render="@form" />
+					</h:commandButton>
+					<section class="section">
+						#{hello.message}
+					</section>
+				</h:form>
+			</h:panelGroup>
+		</h:panelGroup>
+	</h:panelGroup>
+</h:body>
+</html>
